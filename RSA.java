@@ -11,81 +11,97 @@ public class RSA {
 	static ArrayList<Long> encryptetet = new ArrayList<>();
 	
 	public static void main(String[] args) {
-//		key p = getPrivateKey(new key(13,8479));
-//		System.out.println(p.e);
-//		@SuppressWarnings("resource")
-//		Scanner scanner = new Scanner(System.in);
-//		System.out.println("Blockgröße der Buchstaben angeben");
-//		int blockGroese= scanner.nextInt();
-//		String abbruch="";
-//		do {
-//			inputNumbers.add(new String [blockGroese]);
-//			for (int i = 0; i < blockGroese; i++) {
-//				System.out.println("Bitte Buchstabe als Nummer eingeben");
-//				inputNumbers.get(inputNumbers.size()-1)[i]= scanner.next();
-//			}
-//			System.out.println("weitere Eingabe? wenn nein 'ende' eingeben");
-//			abbruch=scanner.next();
-//		} while(!abbruch.contains("ende"));
-//		key publicKey;
-//		System.out.println("Parameter für den Public key eingeben:");
-//		System.out.println("N und e gegeben ? ja eingeben");
-//		if(scanner.next().contains("ja") ) {
-//			System.out.println("e eingeben");
-//			int e = scanner.nextInt();
-//			System.out.println("N eingeben");
-//			int N = scanner.nextInt();
-//		    publicKey = new key(e,N);
-//			encryptetet = encrypte(publicKey);
-//		} else {
-//			System.out.println("q: ");
-//			int q = scanner.nextInt();
-//			System.out.println("p: ");
-//			int p = scanner.nextInt();
-//			System.out.println("e: ");
-//			int e = scanner.nextInt();
-//		    publicKey = new key(e,(p*q));
-//			encryptetet = encrypte(publicKey);
-//		}
 		
-		
-		//System.out.println(getPrivateKey(new key(15,3127)));
-//		inputNumbers.add(new String[]{"13","25"});
-//		inputNumbers.add(new String[]{"00","14"});
-//		inputNumbers.add(new String[]{"01","13"});
-//		inputNumbers.add(new String[]{"05","00"});
-//		inputNumbers.add(new String[]{"09","19"});
-//		inputNumbers.add(new String[]{"00","02"});
-//	    inputNumbers.add(new String[]{"15","02"});
 	
-//		System.out.println("encryptet:"+encryptetet);
-//		System.out.println(getPrivateKey(publicKey));
-//		System.out.println("decryptet:"+decrypte(getPrivateKey(publicKey), encryptetet));
+	//	verschlüsseln();
+	
+		
+		
+// Auskommentierter Teil beinhaltetet code zum eingeben, von Chiffrat als Zahlen in die Liste 
+//		"Unkown Chiffrat". Benötigten key auskommentieren und mit passenden Werten füllen.  
 //		
-		
-// Auskommentierter Teil beinhaltetet code zum eingeb, von Chiffrat als Zahlen in die Liste 
-//		"Unkown Chiffrat" und dem dazugehörigen key "unkown PbulicKey" 
-//		Sysout Anweisung dechiffriert liste, unter verwendugn des bekannten public keys  
-		
-		ArrayList<Long> unknownChiffrat = new ArrayList<Long>();
-		key unknownPublicKey = new key(29,91);
-		unknownChiffrat.add((long) 31);
-		unknownChiffrat.add((long) 33);
-		unknownChiffrat.add((long) 01);
-		unknownChiffrat.add((long) 72);
-		unknownChiffrat.add((long) 76);
+//		ArrayList<Long> unknownChiffrat = new ArrayList<Long>();
+//		ArrayList<Long> message = new ArrayList<>();
+//		unknownChiffrat.add((long) 31);
+//		unknownChiffrat.add((long) 33);
+//		unknownChiffrat.add((long) 01);
+//		unknownChiffrat.add((long) 72);
+//		unknownChiffrat.add((long) 76);
 //		unknownChiffrat.add((long) 1737);
 //		unknownChiffrat.add((long) 2158);
 		
-		System.out.print("decryptet:"+decrypte(getPrivateKey(unknownPublicKey), unknownChiffrat));
+// 		Beide Methoden brauchen unkownChiffrat 	
 		
-//		Berechnet phi für Beliebigen Wert!
-//		phi(e)
-	
+//		key priavateKey = new key(10,3);
+//		key publicKey = new key(10,3);
+//		
+//		message=decrypteWithPublicKey(publicKey, unknownChiffrat);
+//		
+//		
+//		message=decrypteWithPrivateKey(priavateKey, unknownChiffrat);
+//		
+//		System.out.println("massage decrypteet:" + message);
+		
+
 		
 		
 	}
 	
+
+	private static ArrayList<Long> decrypteWithPublicKey(key publicKey, ArrayList<Long> unknownChiffrat) {
+		// TODO Auto-generated method stub
+		return decrypte(getPrivateKey(publicKey), unknownChiffrat);
+	}
+
+
+	private static ArrayList<Long> decrypteWithPrivateKey(key priavateKey, ArrayList<Long> unknownChiffrat) {
+		// TODO Auto-generated method stub
+		return decrypte(priavateKey, unknownChiffrat);
+	}
+
+
+	private static void verschlüsseln() {
+		// TODO Auto-generated method stub
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Blockgröße der Buchstaben angeben");
+		int blockGroese= scanner.nextInt();
+		String abbruch="";
+		do {
+			inputNumbers.add(new String [blockGroese]);
+			for (int i = 0; i < blockGroese; i++) {
+				System.out.println("Bitte Buchstabe als Nummer eingeben");
+				inputNumbers.get(inputNumbers.size()-1)[i]= scanner.next();
+			}
+			System.out.println("weitere Eingabe? wenn nein 'ende' eingeben");
+			abbruch=scanner.next();
+		} while(!abbruch.contains("ende"));
+		key publicKey;
+		System.out.println("Parameter für den Public key eingeben:");
+		System.out.println("N und e gegeben ? ja eingeben");
+		if(scanner.next().contains("ja") ) {
+			System.out.println("e eingeben");
+			int e = scanner.nextInt();
+			System.out.println("N eingeben");
+			int N = scanner.nextInt();
+		    publicKey = new key(e,N);
+			encryptetet = encrypte(publicKey);
+		} else {
+			System.out.println("q: ");
+			int q = scanner.nextInt();
+			System.out.println("p: ");
+			int p = scanner.nextInt();
+			System.out.println("e: ");
+			int e = scanner.nextInt();
+		    publicKey = new key(e,(p*q));
+			encryptetet = encrypte(publicKey);
+		}
+		
+		System.out.println("encryptet:"+encryptetet);
+		System.out.println(getPrivateKey(publicKey));
+		System.out.println("decryptet:"+decrypte(getPrivateKey(publicKey), encryptetet));
+	}
+
 
 	private static key getPrivateKey(key publicKey) {
 
