@@ -9,6 +9,7 @@ public class SatzVonBaeys {
 		int anzahl=scanner.nextInt();
 		double [][] vierFelderTafel  = new double [anzahl+1][2];
 		
+		System.out.println("test committ");
 		
 		double [] ersteEreignisseP = new double [anzahl];
 		double [][] zweiteEreignisseP = new double [anzahl][2];
