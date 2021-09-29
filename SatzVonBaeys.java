@@ -10,6 +10,7 @@ public class SatzVonBaeys {
 		double [][] vierFelderTafel  = new double [anzahl+1][2];
 		
 		System.out.println("test committ");
+		System.out.println("new test commit");
 		
 		double [] ersteEreignisseP = new double [anzahl];
 		double [][] zweiteEreignisseP = new double [anzahl][2];
